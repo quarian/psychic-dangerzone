@@ -1,0 +1,19 @@
+\select@language {swedish}
+\select@language {finnish}
+\select@language {finnish}
+\select@language {finnish}
+\contentsline {section}{\numberline {1}Johdanto}{4}
+\contentsline {section}{\numberline {2}Aiempi tutkimus ja taustaa}{5}
+\contentsline {section}{\numberline {3}Videokoodaus}{6}
+\contentsline {subsection}{\numberline {3.1}Videokoodauksen perusk\IeC {\"a}sitteet}{6}
+\contentsline {subsubsection}{\numberline {3.1.1}Videodatan matka l\IeC {\"a}hteest\IeC {\"a} n\IeC {\"a}ytt\IeC {\"o}laitteelle}{6}
+\contentsline {subsubsection}{\numberline {3.1.2}Videouvan esitt\IeC {\"a}minen ja tallentaminen, diskreetti kosinimuunnos}{7}
+\contentsline {subsection}{\numberline {3.2}Videokoodauksen tarpeellisuus}{8}
+\contentsline {section}{\numberline {4}Rinnakkaislaskenta}{9}
+\contentsline {subsection}{\numberline {4.1}Rinnakkaisuuden perusk\IeC {\"a}sitteet}{9}
+\contentsline {subsection}{\numberline {4.2}Rinnakkaislaskenta ja nykyp\IeC {\"a}iv\IeC {\"a}n tietokonej\IeC {\"a}rjestelm\IeC {\"a}t}{9}
+\contentsline {section}{\numberline {5}Videokoodaus ja rinnakkaislaskenta}{10}
+\contentsline {subsection}{\numberline {5.1}Rinnekkaisuuden hy\IeC {\"o}dyt videokoodaukselle}{11}
+\contentsline {subsection}{\numberline {5.2}Erilaiset kiihdytysalustat ja ohjelmistoratkaisut}{12}
+\contentsline {section}{\numberline {6}Yhteenveto}{13}
+\contentsline {section}{L\IeC {\"a}hteet}{14}

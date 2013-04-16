@@ -1,0 +1,38 @@
+\begin{thebibliography}{4}
+\input babelbst.tex
+\newcommand{\Capitalize}[1]{\uppercase{#1}}
+\newcommand{\capitalize}[1]{\expandafter\Capitalize#1}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Angelides(2011)]{mpeg_app}
+Harry Angelides, Marios C. \&~Agius.
+\newblock \emph{Handbook of MPEG Applications : Standards in Practice}.
+\newblock Wiley, Chichester, West Sussex, United Kingdom, 2011.
+\newblock ISBN 978-0-470-75507-0 (nid.), 978-0-470-97458-2 (elektr.).
+\newblock 551 s.
+
+\bibitem[Cisco(2013)]{cisco}
+Cisco.
+\newblock Ciscon ennustus mobiilidatan kehityksestä.
+\newblock
+  \url{http://www.cisco.com/en/US/solutions/collateral/ns341/ns525/ns537/ns705%
+/ns827/white_paper_c11-520862.html}, \bbljan{} 2013.
+
+\bibitem[Richardson(2010)]{h264}
+Iain Richardson.
+\newblock \emph{H.264 Advanced Video Compression Standard}.
+\newblock Wiley, Chichester, West Sussex, United Kingdom, \bblsecond{}
+  \bbledition{}, 2010.
+\newblock ISBN 978-0-470-51692-8 (nid.), 978-0-470-98928-9 (elektr.).
+\newblock 348 s.
+
+\bibitem[YouTube(2013)]{youtube}
+YouTube.
+\newblock Youtube-statistiikkaa.
+\newblock \url{http://www.youtube.com/t/press_statistics}, \bbljan{} 2013.
+
+\end{thebibliography}

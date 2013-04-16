@@ -1,0 +1,230 @@
+\begin{thebibliography}{29}
+\input babelbst.tex
+\newcommand{\Capitalize}[1]{\uppercase{#1}}
+\newcommand{\capitalize}[1]{\expandafter\Capitalize#1}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Amdahl(1967)]{amdahl}
+Gene~M. Amdahl.
+\newblock Validity of the single processor approach to achieving large scale
+  computing capabilities.
+\newblock  \emph{AFIPS Conference Proceedings}, \bblpages{} 483--485, 1967.
+
+\bibitem[Angelides \bbland{} Agius(2011)]{mpeg_app}
+Marios~C. Angelides \bbland{} Harry Agius.
+\newblock \emph{Handbook of MPEG Applications : Standards in Practice}.
+\newblock Wiley, Chichester, West Sussex, United Kingdom, 2011.
+\newblock ISBN 978-0-470-75507-0 (nid.), 978-0-470-97458-2 (elektr.).
+\newblock 551 s.
+
+\bibitem[Apopei \bbland{} Dodd(2012)]{apopei}
+B.~Apopei \bbland{} T.J. Dodd.
+\newblock Automatic parallelisation for lti mimo state space systems using
+  fpgas. an optimisation for cost \&; performance.
+\newblock \emph{Journal of Parallel and Distributed Computing}, 72\penalty0
+  (8):\penalty0 990 -- 1007, 2012.
+\newblock ISSN 0743-7315.
+\newblock \doi{10.1016/j.jpdc.2012.04.009}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/S0743731512001050}.
+
+\bibitem[Ben-Ari(2006)]{ari}
+M.~Ben-Ari.
+\newblock \emph{Principles of Concurrent and Distributed Programming}.
+\newblock Pearson, Harlow, Essex, United Kingdom, \bblsecond{} \bbledition{},
+  2006.
+\newblock ISBN 978-0-321-31283-9.
+\newblock 361 s.
+
+\bibitem[Blelloch(1989)]{blelloch}
+G.E. Blelloch.
+\newblock Scans as primitive parallel operations.
+\newblock \emph{Computers, IEEE Transactions on}, 38\penalty0 (11):\penalty0
+  1526--1538, 1989.
+\newblock ISSN 0018-9340.
+\newblock \doi{10.1109/12.42122}.
+
+\bibitem[Chi \bbletal{}.(2012)Chi, Alvarez-Mesa, Juurlink, Clare, Henry,
+  \bbland{} Schriel]{chi}
+Chi~Ching Chi, Mauricio Alvarez-Mesa, Ben Juurlink, Gordon Clare, Felix Henry
+  \bbland{} Thomas Schriel.
+\newblock Parallel scalability and efficiency of hevc parallelization
+  approaches.
+\newblock \emph{IEEE Transactions on Circuits and Systems for Video
+  Technology}, 22\penalty0 (12):\penalty0 1827--1838, \bbldec{} 2012.
+
+\bibitem[Choi \bbland{} Jang(2012)]{choi}
+Kiho Choi \bbland{} Euee~S. Jang.
+\newblock Leveraging parallel computing in modern video coding standards.
+\newblock \emph{IEEE Computer Society}, 12\penalty0 (0):\penalty0 7--11,
+  \bbljul{} 2012.
+
+\bibitem[Cisco(2013)]{cisco}
+Cisco.
+\newblock Ciscon ennustus mobiilidatan kehityksestä.
+\newblock
+  \url{http://www.cisco.com/en/US/solutions/collateral/ns341/ns525/ns537/ns705%
+/ns827/white_paper_c11-520862.html}, \bbljan{} 2013.
+
+\bibitem[Du \bbland{} Swamy(2010)]{du}
+Ke-Lin Du \bbland{} M.~N.~S. Swamy.
+\newblock \emph{Wireless Communication Systems - From RF Subsystems to 4G
+  Enabling Technologies}.
+\newblock Cambridge University Press, New York, USA, 2010.
+\newblock ISBN 9780511716898 (elektr.).
+\newblock 551 s.
+
+\bibitem[Grama \bbletal{}.(2003)Grama, Gupta, Karypis, \bbland{} Kumar]{intro}
+Ananth Grama, Anshul Gupta, George Karypis \bbland{} Vipin Kumar.
+\newblock \emph{Introduction to Parallel Computing}.
+\newblock Pearson, Harlow, Essex, United Kingdom, \bblsecond{} \bbledition{},
+  2003.
+\newblock ISBN 0-201-64865-2.
+\newblock 636 s.
+
+\bibitem[Gu \bbletal{}.(2009)Gu, Janneck, Bhattacharyya, Raulet, Wipliez,
+  \bbland{} Plishker]{rvc}
+Ruirui Gu, J.W. Janneck, S.S. Bhattacharyya, M.~Raulet, M.~Wipliez \bbland{}
+  W.~Plishker.
+\newblock Exploring the concurrency of an mpeg rvc decoder based on dataflow
+  program analysis.
+\newblock \emph{Circuits and Systems for Video Technology, IEEE Transactions
+  on}, 19\penalty0 (11):\penalty0 1646--1657, \bblnov{} 2009.
+\newblock ISSN 1051-8215.
+\newblock \doi{10.1109/TCSVT.2009.2031517}.
+
+\bibitem[Lee \bbletal{}.(2011)Lee, Simone, \bbland{} Ebrahimi]{lee}
+Jong-Seok Lee, Francesca~De Simone \bbland{} Touradj Ebrahimi.
+\newblock Efficient video coding based on audio-visual focus of attention.
+\newblock \emph{Journal of Visual Communication and Image Representation},
+  22\penalty0 (8):\penalty0 704 -- 711, 2011.
+\newblock ISSN 1047-3203.
+\newblock \doi{10.1016/j.jvcir.2010.11.002}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/S104732031000146X}.
+\newblock Emerging Techniques for High Performance Video Coding.
+
+\bibitem[Li \bbletal{}.(2012)Li, Peng, \bbland{} Li]{li}
+Dongmei Li, Shuai Peng \bbland{} Zhaohui Li.
+\newblock Design and optimization of high efficiency parallel video coding
+  system.
+\newblock  \emph{Fifth International Joint Conference on Computational Sciences
+  and Optimization}, \bblpages{} 592--596, 2012.
+
+\bibitem[Liao \bbletal{}.(2011)Liao, Lian, Guo, \bbland{} Wang]{hiding}
+Ke~Liao, Shiguo Lian, Zhichuan Guo \bbland{} Jinlin Wang.
+\newblock Effcient information hiding in h.264/avc video coding.
+\newblock \emph{Journal of Visual Communication and Image Representation},
+  22\penalty0 (8):\penalty0 704--711, \bbljun{} 2011.
+
+\bibitem[Meuer \bbletal{}.(2013)Meuer, Strohmaier, Dongarra, \bbland{}
+  Simon]{top500}
+Hans Meuer, Erich Strohmaier, Jack Dongarra \bbland{} Horst Simon.
+\newblock Listaus maailman supertietokoneista.
+\newblock \url{http://www.top500.org/}, \bblmar{} 2013.
+
+\bibitem[Mitra(2010)]{mitra}
+A.~Mitra.
+\newblock \emph{Digital Video: Moving Images and Computers}.
+\newblock Digital world. Facts On File, Incorporated, 2010.
+\newblock ISBN 9781438134611.
+\newblock URL \url{http://books.google.fi/books?id=6M86Q9\_1oMAC}.
+
+\bibitem[Moore(1965)]{moore}
+Gordon~E. Moore.
+\newblock Cramming more components onto integrated circuits.
+\newblock \emph{Electronics}, 38\penalty0 (8), \bblapr{} 1965.
+
+\bibitem[Mujal \bbland{} Kirlin(2002)]{mujal}
+Miquel Mujal \bbland{} Lynn~R. Kirlin.
+\newblock Compression enhancement of video motion of mouth region using joint
+  audio and video coding.
+\newblock  \emph{Fifth IEEE Southwest Symposium on Image Analysis and
+  Interpretation}, 2002.
+
+\bibitem[NVidia(2013)]{nvidia}
+NVidia.
+\newblock Nvidian kehittäjien verkkosivut.
+\newblock \url{https://developer.nvidia.com/nvidia-video-codec-sdk}, \bblapr{}
+  2013.
+
+\bibitem[Oh \bbland{} Kim(2013)]{perception}
+Hyungsuk Oh \bbland{} Wonha Kim.
+\newblock Video processing for human perceptual visual quality-oriented video
+  coding.
+\newblock \emph{Image Processing, IEEE Transactions on}, 22\penalty0
+  (4):\penalty0 1526--1535, 2013.
+\newblock ISSN 1057-7149.
+\newblock \doi{10.1109/TIP.2012.2233485}.
+
+\bibitem[Peng \bbletal{}.(2012)Peng, Xu, Zhouu, \bbland{} Wu]{xu}
+Xiulian Peng, Jizheng Xu, You Zhouu \bbland{} Feng Wu.
+\newblock Highly parallel line-based image coding for many cores.
+\newblock \emph{IEEE Transactions on Image Processing}, 21\penalty0
+  (1):\penalty0 196--206, \bbljan{} 2012.
+
+\bibitem[Pieters \bbletal{}.(2012)Pieters, Hollemeersch, Cock, Lambert,
+  \bbland{} de~Walle]{pieters}
+Bart Pieters, Charles-Frederik Hollemeersch, Jan~De Cock, Peter Lambert
+  \bbland{} Rik~Van de~Walle.
+\newblock Data-parallel intra decoding for block-based image and video coding
+  on massively parallel architectures.
+\newblock \emph{Signal Processing: Image Communication}, 27\penalty0
+  (3):\penalty0 220 -- 237, 2012.
+\newblock ISSN 0923-5965.
+\newblock \doi{10.1016/j.image.2012.01.001}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/S0923596512000021}.
+
+\bibitem[Qi \bbletal{}.(2011)Qi, Chen, \bbland{} Chen]{sync}
+Xiaoin Qi, Mianshu Chen \bbland{} Hexin Chen.
+\newblock \emph{A CAVLC Embedded Method for Audio-Video Synchronization Coding
+  Based on H.264}.
+\newblock IEEE, 2011.
+\newblock ISBN 9781612847719.
+
+\bibitem[Raman \bbletal{}.(2011)Raman, Hanjun, Oh, Lee, August, Hall, \bbland{}
+  Padua]{dope}
+Arun Raman, Kim Hanjun, Taewood Oh, Jae~W. Lee, David~I. August, Mary Hall
+  \bbland{} David Padua.
+\newblock Parallelism orchestration using dope: the degree of parallelism
+  executive.
+\newblock  \emph{32nd ACM SIGPLAN conference}, \bblpages{} 26--37, 2011.
+
+\bibitem[Rauber \bbland{} Gudula(2010)]{rauber}
+Thomas Rauber \bbland{} Rünger Gudula.
+\newblock \emph{Parallel Programming: For Multicore and Cluster Systems}.
+\newblock Springer, Berlin, Germany, 2010.
+\newblock ISBN 978-3-642-04817-3.
+\newblock 455.
+
+\bibitem[Raulet \bbletal{}.(2013)Raulet, Wipilez, Nezan, \bbland{}
+  Mattavelli]{orcc}
+Mickael Raulet, Matthieu Wipilez, Jean-Francois Nezan \bbland{} Marco
+  Mattavelli.
+\newblock Orcc-ohjelmiston kotisivu.
+\newblock \url{http://orcc.sourceforge.net/}, \bblmar{} 2013.
+
+\bibitem[Richardson(2010)]{h264}
+Iain Richardson.
+\newblock \emph{H.264 Advanced Video Compression Standard}.
+\newblock Wiley, Chichester, West Sussex, United Kingdom, \bblsecond{}
+  \bbledition{}, 2010.
+\newblock ISBN 978-0-470-51692-8 (nid.), 978-0-470-98928-9 (elektr.).
+\newblock 348 s.
+
+\bibitem[VideoLan(2013)]{x264}
+VideoLan.
+\newblock x264-ohjelmiston kotisivut.
+\newblock \url{http://www.videolan.org/developers/x264.html}, \bblmar{} 2013.
+
+\bibitem[YouTube(2013)]{youtube}
+YouTube.
+\newblock Youtube-statistiikkaa.
+\newblock \url{http://www.youtube.com/t/press_statistics}, \bbljan{} 2013.
+
+\end{thebibliography}

@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: main.aux
+The style file: aaltosci_t.bst
+Database file #1: lahteet.bib
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+You've used 4 entries,
+            3106 wiz_defined-function locations,
+            681 strings with 6012 characters,
+and the built_in function-call counts, 1311 in all, are:
+= -- 114
+> -- 42
+< -- 6
++ -- 16
+- -- 12
+* -- 62
+:= -- 221
+add.period$ -- 16
+call.type$ -- 4
+change.case$ -- 12
+chr.to.int$ -- 10
+cite$ -- 8
+duplicate$ -- 71
+empty$ -- 129
+format.name$ -- 16
+if$ -- 277
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 4
+newline$ -- 35
+num.names$ -- 16
+pop$ -- 45
+preamble$ -- 1
+purify$ -- 8
+quote$ -- 0
+skip$ -- 47
+stack$ -- 0
+substring$ -- 12
+swap$ -- 9
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 34
+warning$ -- 0
+while$ -- 13
+width$ -- 0
+write$ -- 69

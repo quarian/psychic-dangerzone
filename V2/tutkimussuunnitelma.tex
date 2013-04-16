@@ -1,0 +1,234 @@
+\documentclass[12pt,a4paper,finnish,oneside]{article}
+
+% Valitse 'input encoding':
+%\usepackage[latin1]{inputenc} % merkistökoodaus, jos ISO-LATIN-1:tä.
+\usepackage[utf8]{inputenc}   % merkistökoodaus, jos käytetään UTF8:a
+% Valitse 'output/font encoding':
+%\usepackage[T1]{fontenc}      % korjaa ääkkösten tavutusta, bittikarttana
+\usepackage{ae,aecompl}       % ed. lis. vektorigrafiikkana bittikartan sijasta
+% Kieli- ja tavutuspaketit:
+\usepackage[finnish]{babel}
+% Muita paketteja:
+% \usepackage{amsmath}   % matematiikkaa
+\usepackage{url}       % \url{...}
+% Tästä saa compactitemin
+\usepackage{paralist}
+
+% Kappaleiden erottaminen ja sisennys
+\parskip 1ex
+\parindent 0pt
+\evensidemargin 0mm
+\oddsidemargin 0mm
+\textwidth 159.2mm
+\topmargin 0mm
+\headheight 0mm
+\headsep 0mm
+\textheight 246.2mm
+
+\pagestyle{plain}
+
+% ---------------------------------------------------------------------
+
+\begin{document}
+
+% Otsikkotiedot: muokkaa tähän omat tietosi
+
+\title{TIK.kand tutkimussuunnitelma:\\[5mm]
+Videokoodauksen rinnakkaistaminen}
+
+\author{Miro Nurmela, 84745F\\
+Aalto-yliopisto,\\
+\url{miro.nurmela@aalto.fi}}
+
+\date{\today}
+
+\maketitle
+
+% ---------------------------------------------------------------------
+
+\vspace{10mm}
+
+% MUOKKAA TÄHÄN. Jos tarvitset tähän viitteitä, käytä
+% tässä dokumentissa numeroviitejärjestelmää komennolla \cite{kahva}.
+%
+% Paljon kandidaatintöitä ohjanneen Vesa Hirvisalon tarjoama 
+% sabluuna. Kursivoidut osat \emph{...} ovat kurssin henkilökunnan
+% lisäämiä. 
+
+\textbf{Kandidaatintyön nimi:} Videokoodauksen rinnakkaistaminen
+
+\textbf{Työn tekijä:} Miro Nurmela
+
+\textbf{Ohjaaja:} Vesa Hirvisalo
+
+
+\section{Tiivistelmä tutkimuksesta}
+
+Videodatan määrä on rajussa kasvussa monilla sovellusalueilla \cite{cisco}
+\cite{youtube}. Datan määrän kasvaessa tarvitaan tehokkaampia menetelmiä
+datan koodaukseen, mutta  Mooren lain mukainen eksponentiaalinen laskentatehon
+kasvu ei voi jatkua ikuisesti \cite{sutter}. Laskentaintensiivisiin tehtäviin
+tullaan siis jatkossa tarvitsemaan rinnakkaislaskentaa.
+
+Tämän työ esittelee rinnakkaisohjelmoinnin ja videokoodauksen perusperiaatteet
+sekä rinnakkaisohjelmoinnin soveltamista videokoodaukseen.
+
+\section{Tavoitteet ja näkökulmat}
+
+Rinnakkaisuuden hyödyt ovat selvät - moniydin ja -prosessorijärjestelmissä
+kannattaa käyttää mahdollisimman suuri osa ytimistä ja prosessoreista
+mahdollisimman suorituskykyisten ohjelmistojen rakentamiseksi. Työn tavoitteena on
+osoittaa, että rinnakkaisista ratkaisusta on hyötyä videokoodausohjelmistoja
+toteutettaessa.
+
+Keskeisiä kysymyksiä ovat siis:
+\begin{compactitem}
+\item Miten videokoodaustekniikat rinnakkaistuvat?
+\item Kuinka suuri hyöty rinnakkaistamisesta on suorituskyvyn kannalta?
+\item Miten erilaiset videokoodaustekniikat soveltuvat erilaisille 
+kiihdytysalustoille?
+\end{compactitem}
+
+Työn keskiössä ovat rinnakkaiset ohjelmistoratkaisut sekä niiden suorituskyky. Seuraako rinnakkaisista
+ratkaisuista tehokkaampia (nopeampia) videokoodausmenetelmiä? Millaisia
+keinoja toteuttaa rinnakkaista laskentaa on ja millaisia ratkaisuja se vaatii
+sovelluksilta ja laskentayksiköiltä?
+
+Arvosanan suhteen tavoitteena on tehdä kiitettävä työ.
+
+\section{Tutkimusmateriaali}
+
+Materiaalia rinnakkaisohjelmoinnista, videokoodauksista ja rinnakkaisesta
+videokoodauksesta on runsaasti. Tarjolla on kirjoja, väitöskirjoja ja muita
+opinnäytetöitä, konferensseja, workshopeja ja papereita aiheeseen liittyen.
+Monipuolisen tutkimuksen lisäksi erilaisten videokoodausstandardien dokumentaatiot
+tarjoavat hyvä kuvan menetelmien toiminnasta. Yleisvaikutelmia erilaisista
+ratkaisuista voi löytyä myös teknisissä yleislehdissä, joskaan ei-tieteellisinä
+lähteinä näitä ei primäärilähteinä voi käyttää. Tavoitteiden valossa
+materiaalia kattavaan työhön on aivan riittävästi.
+
+Materiaalista on ensivaikutelman perusteella runsauden pula.
+Hankittuani perustiedot videokoodauksista ja rinnakkaisohjelmoinnista
+voinen keskittyä rinnakkaisesta videokoodauksesta tehtyyn tutkimukseen.
+Aika-arviona perustietojen lähteisiin tutustumiseen ja tiedon omaksumiseen
+voisi kulua n. 10 tuntia ja varsinaisiin tutkimuslähteisiin n. 30 tuntia.
+Näiden lomassa tapahtuisi toki jo kirjoittamista.
+
+\section{Tutkimusmenetelmät}
+
+Tämä tutkimus on kirjallisuustutkimus, jonka lähteet tulevat olemaan kirjoja,
+tieteellisiä artikkeleita, väitöskirjoja, opinnäytetöitä ja mahdollisia
+epätietellisiä lähteitä (ei-tieteelliset julkaisut, internet).
+Joitakin kirjoja on tarjolla fyysisinä kappaleina kirjastoissa, kun taas
+toisia on tarjolla sähköisesti. Sama pätee artikkeleihin, joskin suurin osa
+niistä on verkossa. Internetin lähteisiin pitää suhtautua suurimmalla
+lähdekritiikillä. Tuorein tieto saattaa kuitenkin sijaita erilaisissa blogeissa
+tai muissa verkkojulkaisuissa.
+
+Minulle sopivin tapa työskennellä on ottaa ensin selvää perusasioista (tässä
+tapauksessa videokoodausmenetelmistä ja rinnakkaisohjelmoinnista) ja siirtyä
+sen jälkeen sovellettuun sisältöön (rinnakkaiset videokoodausmenetelmät).
+
+Työn kulku tulee siis olemaan seuraavanlainen:
+\begin{compactitem}
+\item Lähteiden kokoaminen (lähderyhmien valinta, lähteiden arviointi ja
+lukeminen)
+\item Tiedonhankinta perusasioista (tiedon organisointi)
+\item Perusasioista kirjoittaminen (raportointi)
+\item Tiedonhankinta sovelletusta asiasta (tiedon organisointi)
+\item Sovelletun osan kirjoittaminen (raportointi)
+\item Yhteenveto (raportointi)
+\item Nyt kun suurin työ on tehty, kirjoitetaan työhön johdanto, jossa
+käsitellään tarvittavat asiat
+\item Hiotaan
+\end{compactitem}
+
+\section{Haasteet}
+
+Haasteena tulee luultavasti olemaan laajasta materiaalista napakan työn
+tekeminen. Olisi helppoa kahmia suuri määrä lähteitä ja kirjoitella
+niistä pintapuolisia havaintoja. On olennaista löytää riittävän tarkka rajaus
+varsinkin laskentapuolesta puhuttaessa. Olisi myös helppoa mennä liian
+syvälle yksittäisiin videokoodaustekniikoihin, joten täytyy myös löytää
+sopiva taso yleisten menetelmien ja yksityiskohtaisten kuvausten väliltä.
+
+Oikeiden abstraktiotasojen löytämisen lisäksi ainainen haaste on ajanhallinta.
+Minulla ei ole erityisen montaa kurssia keväällä käynnissä, mutta kilpaurheilu,
+sosiaaliset velvoitteet ja muut opiskelun ulkopuoliset asiat saattavat haitata
+työntekoa. Tavoite on kuitenkin pitää häiriöt hallittavissa.
+
+\section{Resurssit}
+
+Työn tekijänä toimii allekirjoittanut ja ohjaajana Vesa Hirvisalo. Aikaa on
+käytössä normaalin opiskelun ohessa riittävästi.
+
+Varsinaiseen kandintyöhön ei tule kokeellista osaa, sillä työn on tarkoitus
+toimia napakkana kirjallisuustutkimuksena. Jos työ sujuu hyvin, niin sitä
+saattaa seurata erikoistyönä toteutettu kokeellinen osuus.
+
+\section{Aikataulu}
+
+\begin{tabular}{|p{30mm}|p{120mm}|}
+\hline
+vko 4-5   & Lähteiden keruu ja luku, tutkimussuunnitelman palautus \\ \hline
+vko 6-7   & Leipätekstin kirjoitus \\ \hline
+vko 8-9   & Johtopäätökset, johdannot ja muut osiot \\ \hline
+vko 10-11 & Hiontaa ja tarkastusta \\ \hline
+vko 12    & Palautuskelpoinen työ \\ \hline
+vko 12 - 23 & Presentaation valmistelu tällä aikavälillä \\ \hline
+\end{tabular}
+
+Muut päivämäärät, kuten palautteiden dl:t, löytyvät Nopasta.
+
+Aikataulu on tiivis ja etupainotteinen kolmesta syystä. Kun työn saa käyntiin,
+ei ole syytä aikailla ja toisaalta etupainoisuus antaa liikkumavaraa mahdollisia
+ongelmia kohdatessa. Toisekseen jos työ valmistuu yllä olevan aikataulun
+puitteissa, jää aikaa soveltavan työn tekemiseen.
+
+\section{Esittäminen}
+
+Alla on esitetty alustava runko tutkielman pohjaksi.
+
+\begin{enumerate}
+	\item Johdanto
+	\item Aiempi tutkimus ja taustaa (nimi päätetään myöhemmin)
+	\item Videokoodaus
+		\begin{enumerate}
+			\item Videokoodauksen perusteet
+			\item Videokoodauksen tarpeellisuus
+		\end{enumerate}
+	\item Rinnakkaislaskenta
+		\begin{enumerate}
+			\item Rinnakkaislaskennan peruskäsitteet
+			\item Rinnakkaislaskenta ja nykypäivän tietokonejärjestelmät
+		\end{enumerate}
+	\item Videokoodaus ja rinnakkaislaskenta
+		\begin{enumerate}
+			\item Rinnakkaisuuden hyödyt videokoodaukselle
+			\item Erilaiset kiihdytysalustat ja ohjelmistoratkaisut
+		\end{enumerate}
+	\item{Yhteenveto}
+\end{enumerate}
+
+% ---------------------------------------------------------------------
+%
+% ÄLÄ MUUTA MITÄÄN TÄÄLTÄ LOPUSTA
+
+% Tässä on käytetty siis numeroviittausjärjestelmää. 
+% Toinen hyvin yleinen malli on nimi-vuosi-viittaus.
+
+% \bibliographystyle{plainnat}
+\bibliographystyle{finplain}  % suomi
+%\bibliographystyle{plain}    % englanti
+% Lisää mm. http://amath.colorado.edu/documentation/LaTeX/reference/faq/bibstyles.pdf
+
+% Muutetaan otsikko "Kirjallisuutta" -> "Lähteet"
+\renewcommand{\refname}{Lähteet}  % article-tyyppisen
+
+% Määritä bib-tiedoston nimi tähän (eli lahteet.bib ilman bib)
+\bibliography{lahteet}
+
+% ---------------------------------------------------------------------
+
+\end{document}
+

@@ -1,0 +1,146 @@
+% --------------------------------------------------------------------
+
+\section{Johdanto}
+
+\textbf{DISCLAIMER:} Huonoa, muistiinpanonomaista tekstiä. Tullaan parantamaan.
+
+\newpage
+
+\section{Aiempi tutkimus ja taustaa}
+
+\newpage
+
+\section{Videokoodaus}
+
+Viimeisen viidentoista vuoden aikana suurin osa videodatasta on muuttunut
+analogisesta digitaaliseksi. VHS-kaseteista ja analogisista TV-lähetyksistä
+on siirrytty Blu-Ray -tekniikoihin, kännykkäkameroihin
+teräväpiirtotelevisioihin. Tekniikan kehitys ei näy ainoastaan tallennusmedioissa,
+sillä niin ikään tiedonsiirto on kehittynyt ja muuttunut monin paikoin
+langattomaksi.(\cite{h264})
+Videodatan määrä on myös valtavassa kasvussa (\cite{cisco}, \cite{youtube}).
+Raaka videodata suuret määrät tallennustilaa eikä sen siirtäminen
+langattomasti ole mahdollista - tarvitaan siis teknologia, jolla videodataa pakataan ja puretaan
+(enkoodataan ja dekoodataan). Tätä pakkaamisen ja purkamisen prosessia
+kutsutaan videokoodaukseksi. Pakkaamisen ja purkamisen lisäksi videokoodaus kattaa
+myös signaalin reaaliaikaisesta kääntämisestä (transkoodaus). Transkoodaus
+tarkoittaa esimerkiksi enkoodatun datan kääntämistä toiseen koodausstandardiin (\cite{mpeg_app}).
+Seuraavissa alaluvuissa käsitellään videokoodausmenelmien perusteita. Tästä lähin näihin viitataan termein
+enkoodaus, dekoodaus ja transkoodaus.
+
+CODEC (COder DECOder pair) viittaa ohjelmistoon tai laitteeseen, joka suorittaa
+videokoodausta (\cite{h264}).
+
+
+\subsection{Videokoodauksen peruskäsitteet}
+
+\subsubsection{Videodatan matka lähteestä näyttölaitteelle}
+
+Videodata saa alkunsa lähteestä, joka on tyypillisesti kamera, joka tallentaa
+raakadatan. Tämän jälkeen suoritetaan enkoodaus, jonka jälkeen tiivistetty data
+voidaan tallentaa tai siirtää. Tosimaailma on ajallisesta ja paikallisesti jatkuvaa,
+mutta digitaalinen maailma ei. Jotta videodataa voidaan tallentaa, täytyy
+maailmasta ottaa näytteitä eri ajanhetkillä. Tyypillisesti otokset eri ajanhetkiltä
+ovat nelikulmaisia ruudukkoja - tällainen diskreetti esitys voidaan enkoodata
+ja esimerkiksi kameran muistikortille tallentaa. Näin peräkkäisistä tallennetuista
+ruudukoista voidaan koota myöhemmin videokuvaa.(\cite{h264})
+
+Jos enkoodaus on näyttölaitteelle väärässä
+formaatissa, täytyy suorittaa transkoodaus oikeen formaattiin.
+
+Prosessin toisessa päässä tiivistety data dekoodataan ja järjestetään niin, että
+se voidaan halutulla kohdelaitteella näyttää käyttäjälle.
+
+\subsubsection{Videouvan esittäminen ja tallentaminen, diskreetti kosinimuunnos}
+
+Kuten mainittu, digitaalinen maailma ei todellisen maailman tavoin ole jatkuva.
+Videokuvaa tallentaessa täytyy maailmasta tellennettu kuva sovittaa haluttuun
+formaattin - suorakaiteen muotoiseen ruudukkoon näytteitä maailmasta.
+
+Digitaaliset kuvat esitetään siis näytteinä tosimaailmasta - näytteet tunnetaan
+paremmin kuvapisteinä eli pikseleinä.
+Näistä kuvapisteistä kootaan peräkkäisiä ruutuja, joita peräkkäin toistamalla
+saadaan aikaan vaikutelma elävästä kuvasta.
+Värikuvaa kuvatessa jokaisella kuvapisteellä täytyy olla tieto siinä esiintyvien
+värien määrästä. Suositussa RGB-väriavaruudessa jokaisella kuvapisteellä on
+kolme parametriä - punaisen, vihreän ja sinisen värin määrä. Tiheys, jolla
+ruutuja tallennetaan määrää ruutunopeuden (frame rate). Erään mittarin
+videokuvan laadusta antavat kuvapisteiden määrä ja ruutunopeus. (\cite{h264})
+
+Videokoodausta varten on olemassa häviöllisiä ja häviöttömiä metodeita.
+Yhteistä niille on videodatan vahvan spatiaalisen ja ajallisen redundanssin
+hyödyntäminen. Käytännössä peräkkäisissä ruuduissa on suurella
+todennäköisyydellä lähes samat kuvapisteet ja yhdessä ruudussa lähekkäiset
+kuvapisteet muistuttavat toisiaan suurella todennäköisyydellä. (\cite{h264})
+
+
+Raakoja näytteitä ei ole tapana säilyttää, vaan ne muunnetaan paremmin
+enkoodaukseen sopivaan muotoon. Esitellään tässä yksi yleisimmistä
+muunnoksista, diskreetti kosinimuunnos (DCT).
+
+DCT on Fourier-muunnoksen kaltainen muunnos, joka muuntaa videokoodauksen
+tapauksessa ruutujen näyteblokkien pikseliarvoja eri taajuuksilla värähteleviksi
+kosinifunkitoiksi. Saavuettu etu on se, että häviöllisissä koodausmenetelmissä
+voidaan jättää koodamatta pienet korkeataajuiset funktiot - niitä ihminen
+on huono huomaamaan. (\cite{h264})
+
+
+\newpage
+
+\subsection{Videokoodauksen tarpeellisuus}
+
+\newpage
+
+\section{Rinnakkaislaskenta}
+
+Rinnakkaislaskennan (parallel computing) tavoite on parantaa laskennan
+suorituskykyä. Käsitteellisesti rinnakkaislaskentaa ei kannata sekoittaa
+samanaikaiseen laskentaan (concurrent computing). Akateemisessa mielessä
+jälkimmäinen tarkoittaa rinnakkaisen laskennan oikeellisuuteen, kun taas
+ensimmäinen keskittyy saamaan hajautetusta ja rinnakkaisesta laskennasta
+näkyviä hyötyjä. Tämä työ keskittyy rinnakkaisesta laskennasta saatuihin
+suorituskyvyn parannuksiin. (citation needed)
+
+\subsection{Rinnakkaisuuden peruskäsitteet}
+
+Rinnakkaisuutta voidaan jakaa kahteen osaan sen perusteella, mihin rinnakkaisuus
+kohdistuu. Tehtävärinnakkaisessa laskennassa rinnakkain suoritetaan erilaisia
+tehtäviä - esimerkiksi saman ohjelman eri säikeitä. Datarinnakkaisessa
+ohjelminnissa taas rinnakkaisuus syntyy siitä, että operoidaan samaan aikaan
+eri datan osa-alueilla. Datarinnakkainen lähestymistapa sopii varsin hyvin
+videokoodauksen rinnakkaistamiseen - jos esimerkiksi tehdään DCT, voisaan
+kukin blokki käsitellä erikseen (blokit riippumattomia toisistaan), joten
+saavuetyt hyödyt laskenta-ajassa ovat huomattavat. (citation needed)
+
+\begin{compactitem}
+	\item asiaa race conditioneista, mutexeista, synkronoinnista?
+	\item amdahl?
+\end{compactitem}
+
+\subsection{Rinnakkaislaskenta ja nykypäivän tietokonejärjestelmät}
+
+Nykypäivänä suurin osa laitteista, jotka pystyvät toistamaan videota ovat
+moniytimisä tietokoneita - jopa joissakin televisioissa on nykykän
+kaksoisydinprosessoireita. Samalla prosessorit ovat kehittyneet suorittamaan
+useampia käskyjä kerrallaan (pipelining), joten rinnakkaisuus on ehdottomasti
+nykypäivää. (citation needed)
+
+\newpage
+
+\section{Videokoodaus ja rinnakkaislaskenta}
+
+\newpage
+
+\subsection{Rinnekkaisuuden hyödyt videokoodaukselle}
+
+\newpage
+
+\subsection{Erilaiset kiihdytysalustat ja ohjelmistoratkaisut}
+
+\newpage
+
+\section{Yhteenveto}
+
+
+% --------------------------------------------------------------------
+
