@@ -71,8 +71,6 @@ jälkeen esitellään videokoodaus ja rinnakkaislaskenta. Lopulta esitellään
 varsinaisia ratkaisuja rinnakkaiseen videokoodaukseen ja tehdään yhteenveto
 tutkimuksen sisällöstä.
 
-\newpage
-
 \section{Digitaalinen liikkuva kuva ja rinnakkaislaskennan perusteet}
 
 Tässä luvussa käsitellään digitaalista videota, rinnakkaislaskennan historiaa
@@ -153,7 +151,7 @@ videodatan subjektiivisen laadun takia. Subjektiivista laatua käsitellään
 myöhemmin tässä työssä, mutta kerrottakoon tässä, että videodatan laatua
 voidaan pakatessa menettää ilman, että ihmissilmät havaitsee laadun
 heikkenemistä. Tätä tosiasiaa voidaan käyttää tiiviimmän pakkaamisen
-aikaansaamiseksi. (\cite{h264})
+aikaansaamiseksi. (\citealt{h264})
 
 Havainnoinnin tutkimustyökaluja ovat muun muassa silmien liikkeiden seuraus,
 kyselytutkimukset ja aivojen kuvantaminen. Videodatan subjektiivista laatua
@@ -164,11 +162,8 @@ subjektiivista laatua tutkimalla silmän liikkeitä ja parantanut yleisimpien
 havainnoinnin kohteena olleiden alueiden tarkkuutta videossa
 (\citealt{perception}). Toinen tutkimus on dekoodannut liikkuvia kohteita
 videossa suuremmalla tarkkuudella, sillä ihmissilmä keskittyy luontaisesti
-liikkeeseen (\citealt{lee}).
-
-Huomattavaa on siis, että monista tieteenaloista on hyötyä videokoodaukselle.
-Menetelmiä voi aina parantaa, mutta keskittymällä olennaisiin parannuksiin
-päästään vähemmällä vaivalla.
+liikkeeseen (\citealt{lee}). Videokoodauksen tutkiminen ei ole siis ainoastaan
+tekniikan jatkuvaa kehittämistä.
 
 \subsection{Rinnakkaislaskennan oikeellisuus}
 
@@ -208,8 +203,6 @@ ongelmilta.
 
 	-rinnakkaislaskentaa yritetty jo vuosikymmeniä saada toimimaan
 \end{comment}
-
-\newpage
 
 \section{Videokoodaus}
 
@@ -318,7 +311,7 @@ Suurin osa videokoodausmenetelmistä hyödyntää videodatan vahvaa
 avaruudellista ja ajallista redundanssia. Käytännössä peräkkäisissä
 ruuduissa on suurella todennäköisyydellä lähes samat kuvapisteet (ajallinen) ja
 yhdessä ruudussa lähekkäiset kuvapisteet muistuttavat toisiaan suurella
-todennäköisyydellä (avaruudellinen). Monien koodekkien ensimmäinen askel videon koodaamiseen
+todennäköisyydellä (tilallinen). Monien koodekkien ensimmäinen askel videon koodaamiseen
 on ennustaminen - jollakin määrällä edellisiä ajallisia näytteitä voidaan
 melko suurella todennäköisyydellä ennustaa, mitä tässä näytteessä tulee
 olemaan. Samaan tapaan saman näytteen sisällä jo käsiteltyjen kuvapisteiden
@@ -467,8 +460,6 @@ pelkkä PSNR arvo ei vastaa suoraan mitään subjektiivista arvoa. Yleisesti
 ottaen korkea PSNR arvo tarkoittaa hyvää laatua ja matala arvo huonoa.
 (\citealt{h264}, \citealt{du})
 
-\newpage
-
 \section{Rinnakkaislaskenta}
 
 Tässä luvussa käsitellään rinnakkaislaskennan perusteita, haasteita ja
@@ -479,6 +470,12 @@ rinnakkaistamisen toteutukseen.
 
 \subsection{Erilaisia rinnakkaisuuksia}
 
+Rinnakkaisuutta löytyy nykypäivänä monesta muodosta. Tässä aliluvussa
+käsitellään eri tasoilla esiintyviä rinnakkaisuuksia ja rinnakkaisen laskennan
+jakamsita hallintarakenteiden perusteella.
+
+\subsubsection{Eri tason rinnakkaisksia}
+
 Rinnakkaisuutta on nykypäivän tietokonejärjestelmissä monella tasolla.
 Nykyaikaisissa supertietokoneissa on jopa yli miljoona ydintä (\citealt{top500}),
 tavallisia tietokoneita kerätään laskentaklustereiksi, tieteellisessä
@@ -486,40 +483,21 @@ laskennassa hyödynnetään monenlaisia rinnakkaisia laskentamenetelmiä ja jopa
 Internetiä voidaan pitää eräänlaisena rinnakkaislaskennan alustana. Toisaalta
 suurten supertietokoneiden lisäksi rinnakkaisuus on tullut aivan tavallisten
 kuluttajatietokoneiden osaksi. Prosessorit ovat jo pitkään hyödyntäneet
-erilaisten laskentayksiköiden samanaikaista käyttöä laskentaa tehostaakseen.
+erilaisten laskentayksiköiden samanaikaista käyttöä laskennan tehostamiseen.
 Viimeksi mainittu menetelmä tunnetaan termillä liukuhihnaus (pipelining).
-(\citealt{intro}, \citealt{rauber})
+Liukuhihnalaskennan tehonlisäys seuraa siitä, että laskentaa voidaan
+prosessorissa suorittaa suuremmalla kellotaajudella rinnakkaisten operaatioiden
+johdosta. (\citealt{intro}, \citealt{rauber})
 
-Yhteisiä eri tason rinnakkaisille ratkaisulle ovat niin hyödyt kuin haitatkin.
-Kaikki tavoittelevat lisäystä suorituskykyyn, mutta rinnakkaisuuden
-hallinta tuo laskentaan omia haasteitaan. Esimerkiksi liukuhihnaamisen hyödyt
-käyvät ilmi seuraavasta esimerkistä. Oletetaan, että tehdas tuottaa autoja.
-Kunkin auton valmistaminen kestää sata tuntia, joten valmistamalla yksi auto
-kerrallaan saadaan sadassa tunnissa yksi auto. Jos auton valmistus kuitenkin
-pilkotaan kymmeneen osaan, joita voi suorittaa rinnakkaisesti, ja joiden
-suoritus kestää kymmenen tuntia, voidaankin sadassa tunnissa tuottaa kymmenen
-autoa. Saavutettu hyöty triviaalissa esimerkissä on kymmenkertainen.
-(\citealt{intro}). Toisaalta samaa esimerkkiä voidaan hyödyntää ilmentämään
-liukuhihnaamisen vaikeuksia. Jos esimerkiksi kaksi peräkkäistä tehtävää
-olisivat auton ovien kiinnittäminen ja maalaaminen, niin on selvää, että autoa
-ei voi maalata ennen ovien kiinnittämistä. Esimerkiksi tällaiset
-riippuvuussuhteet aiheuttavat ongelmia rinnakkaislaskennalle ja niitä sekä
-muita haasteita varten täytyy kehittää hallintarakenteita.
+Rinnakkaisuutta on laskentayksikössä monella tasolla - tavallisessa 
+moniydinprosessorissa on laskentayksiköitä ovat niin prosessorit kuin
+yksittäisten prosessorien liukuhihnat. Laskennan oikeellisuuden ja tehokkuuden
+takaamiseksi tarvitaan hallintajärjestelmiä ja huolellista järjestelmän
+suunnitelua.
 
-Hallintarakenteita erilaisille rinnakkaisuuden muodoille on monia.
-Yksinekertaiseen liukuhihnaamiseen eräs ratkaisu on suoritettavien operaatioiden
-järjestäminen sellaiseen järjestykseen, että riippuvuussuhteet eivät
-aiheuta ongelmia. Toisaalta liukuhihnaa voidaan myös hidastaa, jolloin
-saavutettu laskentateho vähenee, mutta laskenta pysyy oikeana. Nämä
-ratkaisut kuulostavat yksinkertaisilta, mutta niiden toteutukseen ja
-vaikutuksiin liittyy kuitenkin haasteita, joihin ei kuitenkaan tässä työssä
-syvennytä tarkemmin. (\citealt{intro}, \citealt{rauber})
+\subsubsection{SIMD, MIMD ja SIMT - rinnakkaisten menetelmien hallintarakenteet}
 
-Kun laskentayksiköitä on enemmän, tarvitaan monimutkaisempia
-hallintamekanismeja. Huomattavaa on kuitenkin, että usein rinnakkaisuutta on
-laskentayksikössä monella tasolla - esimerkiksi prosessoreita on monta, ja
-jokaisella prosessorilla on oma liukuhihnansa. Monimutkaisemmat
-hallintarakenteet voidaan jakaa karkeasti kahteen luokkaan sen perusteella,
+Rinnakkaislaskennan hallintarakenteet voidaan jakaa karkeasti kahteen luokkaan sen perusteella,
 miten paljon laskennan hallintaa kullekin laskentayksikölle on jaettu. Jos
 hallinta on keskitetty, kyseessä on SIMD-arkkitehtuuri (Single Instruction
 stream, Multiple Data stream). SIMD-arkkitehtuurissa yksittäinen
@@ -573,6 +551,14 @@ käyttämällä on helpompi pitää yllä erilaisia laskentayksiköitä. Kaikkie
 käyttäessä samaa muistia yksiköiden tulee käsitellä muistia samalla tavalla,
 mutta viestejä välittäessä jokaisen yksikön täytyy vain täyttä
 viestinvälitysrajapinnan vaatimukset. (\citealt{intro}, \citealt{rauber})
+
+\subsubsection{Skaalautuvuus}
+
+Skaalaus kertoo saavutetaanko rinnakkaislaskennasta laskentayksiköiden määrään
+suhteessa olevaa hyötyä, eli tehostuuko laskenta laskentayksiköitä lisäämällä.
+Laskentayksiköiden lisääminen ei loputtomasti kasvata rinnakkaislaskennan
+tehokkuutta. Hyvin skaalautuvan rinnakkaislaskentamallin laskenta-aika pysyy
+vakiona ongelmaa ja laskentayksiköiden määrää kasvattaessa. (\citealt{rauber})
 
 \subsubsection{Rakeisuus ja laskennan järjestäminen}
 
@@ -719,61 +705,6 @@ nopeimman peräkkäisen algoritmin suoritusaika. Jos rinnakkaisen algoritmin
 kasvu on asymptoottisesti sama kuin yksittäisen laskentayksikön algoritmin kasvu,
 rinnakkaista algoritmia sanotaan hintaoptimaaliseksi. (\citealt{intro})
 
-Skaalaus kertoo saavutetaanko rinnakkaislaskennasta laskentayksiköiden määrään
-suhteessa olevaa hyötyä, eli tehostuuko laskenta laskentayksiköitä lisäämällä.
-Laskentayksiköiden lisääminen ei loputtomasti kasvata rinnakkaislaskennan
-tehokkuutta. Hyvin skaalautuvan rinnakkaislaskentamallin laskenta-aika pysyy
-vakiona ongelmaa ja laskentayksiköiden määrää kasvattaessa. (\citealt{rauber})
-
-\subsection{RVC-CAL-standardi}
-
-Rinnakkaisuuden ongelmia on käsitelty aiemmissa alaluvuissa. Tässä
-alaluvussa esitellään eräs keino hyödyntää rinnakkaisuutta ja sen soveltamista
-videokoodaukseen. Keino on RVC-CAL, erityisesti videokoodaukseen kehitetty
-CAL-ohjelmointikielen toteutus (Cal Actor Language). CALin vahvuus on se, että
-sillä on kääntäjiä monille alustoille, mukaan lukien moniydinprosessorit.
-RVC-CALiin on saatavilla myös avoimen lähdekoodin toteutus (\citealt{orcc}).
-
-CAL on korkean tason toimijakeskeinen tietovuo-ohjelmointikieli (high level
-actor oriented dataflow programming language). Tietovuo-ohjelmoinnissa ohjelmat
-mallinnetaan suunnattuina verkkoina, joiden solmuja kutsutaan toimijoiksi.
-Toimijat kuvaavat mielivaltaisen monimutkaisia laskutoimituksia ja toimijoiden
-väliset kaaret tiedon liikkumista toimijoiden välillä. Liikkuva tieto
-abstrahoidaan merkeiksi (token). Toimijat toistuvasti ottavat sisääntulevista kaarista
-merkkejä, suorittavat laskutoimituksensa ja tuottaa merkkejä ulospäin
-meneviin kaariin. Kuvan \ref{fig:dataflow} tietovuokaaviossa on viisi toimijaa,
-A, B, C, D ja E. Kunkin kaaren lähtöpuolella kerrotaan, kuinka monta merkkiä
-kyseiseen kaareen tuotetaan ja päättymispuolella kuinka monta merkkiä kyseinen
-toimija ottaa vastaan. (\citealt{rvc})
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.5\textwidth]{dataflow.jpg}
-	\caption{Yksinkertainen esimerkki tietovuokaaviosta}
-	\label{fig:dataflow}
-\end{figure}
-
-Tietovuomalli perusmuodossaan ei määrää mitään aikarajoitteita toimijoiden
-laskennalle. CALissa jokainen toimija on itsenäinen komponentti eivätkä muut
-toimijat voi vaikuttaa sen tilaan (muuten kuin merkkejä lähettämällä). CALin
-toimijat on määritelty niiden toimintojen (action) perusteella. Jokainen
-toiminto määrittää miten toimijan sisäinen tila muuttuu. Toimintoja
-suoritetaan (fire) riippuen merkkien sisältämästä datasta tai toimijan
-sisäisistä tiedoista. Toiminnot suoritetaan peräkkäin, mutta missä toimijoiden
-suoritusjärjestystä ei ole määrätty. Ominaisuuksiensa johdosta CAL sopii hyvin 
-kuvaamaan rinnakkaisia järjestelmiä ja rinnakkaisia algoritmeja. (\citealt{rvc})
-
-RVC (Reconficurable Video Coding) on MPEG-ryhmän (Moving Picture Experts
-Group) kehittämä standardi rinnakkaisten videokoodausmenetelmien suunnitteluun.
-Standardin tavoitteena on olla yhtenäinen, korkean tason suunnittelutyökalu.
-Se määrittelee laskentayksiköt toiminnallisiksi yksiköiksi (functional unit)
-ja toiminnallisten yksiköiden väliset yhteydet laskentayksiköiden välisiksi
-datapoluiksi. Nämä vuorostaan kuvautuvat CALin toimijoiksi ja kuvaajien
-kaariksi. CALin käyttö väliesityksenä mahdollistaa kääntämisen monenlaisille
-alustoille ja jopa suoran syntetisoinnin laitteistoksi. (\citealt{rvc})
-
-\newpage
-
 \section{Videokoodaus ja rinnakkaislaskenta}
 
 Tässä luvussa esitellään muutamia uusia ratkaisuja videokoodauksen
@@ -864,9 +795,14 @@ tason rinnakkaisuus yksittäisten työkalujen ja algoritmien rinnakkaisuuksien
 vähentämistä. (\citealt{choi}) Edellisessä luvussa käsitelty RVC-CAL on työkalu
 rinnakkaisen videokoodauksen mahdollistamiseen ja kuuluu näin matalan tason rinnakkaisuuden
 vähentämiseen.
-Käsitellään seuraavaksi lyhyesti, miten kehitteillä
+Käsitellään seuraavaksi, miten kehitteillä
 olevaan HEVC-standardiin (High Efficiency Vide Coding) on sisällytetty rinnakkaisuutta ja sille ehdotettua
-parannusta.
+parannusta sekä RVC-CAL-standardi, joka tavoittelee helposti monille alustoille
+käännettäviä rinnakkaisia ratkaisuja.
+
+\setcounter{secnumdepth}{5}
+
+\paragraph{HEVC-standardi}
 
 HEVC-standardissa on ehdotettu joitakin keinoja rinnakkaisten
 ratkaisujen pohjaksi. Ehdotettuja keinoja ovat laattapohjainen (tile based) ja
@@ -913,6 +849,53 @@ aaltorintama -menetelmä kannattaa ottaa huomioon HEVC-standardia kehittäessä.
 Huomattavaa on myös, että menetelmät toimivat huomattavasti paremmin
 rinnakkaisina kuin peräkkäisinä, sillä yhdessä säikeessä ajetut testit
 tuottivat selvästi huonoimmat tulokset.
+
+\paragraph{RVC-CAL-standardi}
+
+Rinnakkaisen videokoodauksen ongelmia on käsitelty aiemmissa alaluvuissa. Tässä
+alaluvussa esitellään eräs keino hyödyntää rinnakkaisuutta ja sen soveltamista
+videokoodaukseen. Keino on RVC-CAL, erityisesti videokoodaukseen kehitetty
+CAL-ohjelmointikielen toteutus (Cal Actor Language). CALin vahvuus on se, että
+sillä on kääntäjiä monille alustoille, mukaan lukien moniydinprosessorit.
+RVC-CALiin on saatavilla myös avoimen lähdekoodin toteutus (\citealt{orcc}).
+
+CAL on korkean tason toimijakeskeinen tietovuo-ohjelmointikieli (high level
+actor oriented dataflow programming language). Tietovuo-ohjelmoinnissa ohjelmat
+mallinnetaan suunnattuina verkkoina, joiden solmuja kutsutaan toimijoiksi.
+Toimijat kuvaavat mielivaltaisen monimutkaisia laskutoimituksia ja toimijoiden
+väliset kaaret tiedon liikkumista toimijoiden välillä. Liikkuva tieto
+abstrahoidaan merkeiksi (token). Toimijat toistuvasti ottavat sisääntulevista kaarista
+merkkejä, suorittavat laskutoimituksensa ja tuottaa merkkejä ulospäin
+meneviin kaariin. Kuvan \ref{fig:dataflow} tietovuokaaviossa on viisi toimijaa,
+A, B, C, D ja E. Kunkin kaaren lähtöpuolella kerrotaan, kuinka monta merkkiä
+kyseiseen kaareen tuotetaan ja päättymispuolella kuinka monta merkkiä kyseinen
+toimija ottaa vastaan. (\citealt{rvc})
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{dataflow.jpg}
+	\caption{Yksinkertainen esimerkki tietovuokaaviosta}
+	\label{fig:dataflow}
+\end{figure}
+
+Tietovuomalli perusmuodossaan ei määrää mitään aikarajoitteita toimijoiden
+laskennalle. CALissa jokainen toimija on itsenäinen komponentti eivätkä muut
+toimijat voi vaikuttaa sen tilaan (muuten kuin merkkejä lähettämällä). CALin
+toimijat on määritelty niiden toimintojen (action) perusteella. Jokainen
+toiminto määrittää miten toimijan sisäinen tila muuttuu. Toimintoja
+suoritetaan (fire) riippuen merkkien sisältämästä datasta tai toimijan
+sisäisistä tiedoista. Toiminnot suoritetaan peräkkäin, mutta missä toimijoiden
+suoritusjärjestystä ei ole määrätty. Ominaisuuksiensa johdosta CAL sopii hyvin 
+kuvaamaan rinnakkaisia järjestelmiä ja rinnakkaisia algoritmeja. (\citealt{rvc})
+
+RVC (Reconficurable Video Coding) on MPEG-ryhmän (Moving Picture Experts
+Group) kehittämä standardi rinnakkaisten videokoodausmenetelmien suunnitteluun.
+Standardin tavoitteena on olla yhtenäinen, korkean tason suunnittelutyökalu.
+Se määrittelee laskentayksiköt toiminnallisiksi yksiköiksi (functional unit)
+ja toiminnallisten yksiköiden väliset yhteydet laskentayksiköiden välisiksi
+datapoluiksi. Nämä vuorostaan kuvautuvat CALin toimijoiksi ja kuvaajien
+kaariksi. CALin käyttö väliesityksenä mahdollistaa kääntämisen monenlaisille
+alustoille ja jopa suoran syntetisoinnin laitteistoksi. (\citealt{rvc})
 
 \subsubsection{Videodatan riippuvuuksien ja synkronoinnin tarpeen vähentäminen}
 
@@ -1017,8 +1000,8 @@ videokoodaukseen.
 	Rinnakkaisuuksien rikkominen & Skaalautuvuus & Lähes lineaarinen skaalautuvuus laskentayksiköiden määrään nähden &
 			\citealt{xu} \\
 	\hline
-	Rinnakkaisuuksien rikkominen & PSNR & Korkeampi PSNR kuin peräkkäisellä menetelmällä erityisesti korkealaatuisessa videossa
-			\citealt{xu}& \\
+	Rinnakkaisuuksien rikkominen & PSNR & Korkeampi PSNR kuin peräkkäisellä menetelmällä erityisesti korkealaatuisessa videossa &
+			\citealt{xu} \\
 	\hline
 \end{tabular}
 \end{center}
@@ -1111,8 +1094,6 @@ rinnakkaisiin ympäristöihin
 -lähde \citealt{li} esittelee suunnitelua ja optimointia
 
 \end{comment}
-
-\newpage
 
 \section{Yhteenveto}
 
