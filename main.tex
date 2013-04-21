@@ -37,8 +37,16 @@
 \usepackage{paralist}
 \usepackage{graphicx}
 \usepackage{verbatim}
+\usepackage{longtable}
 
 \setcounter{tocdepth}{5}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+  {-3.25ex\@plus -1ex \@minus -.2ex}%
+  {1.5ex \@plus .2ex}%
+  {\normalfont\normalsize\bfseries}}
+\makeatother
 
 % Tavutettavia sanoja:
 %\hyphenation{vää-rin me-ne-vi-en eri-kois-ten sa-no-jen tavu-raja-ehdo-tuk-set}
