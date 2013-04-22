@@ -24,7 +24,7 @@ kehittämään uusia, tehokkaampia videokoodausmenetelmiä. Ollaan kuitenkin tul
 siihen pisteeseen, että vain tehokkaimmat yksiprosessorijärjestelmät pystyvät
 koodaamaan korkealaatuista videodataa. Kustannustehokkaan ja riittävän
 laskentatehon saavuttamiseksi tarvitaan tulevaisuudessa muita ratkaisuja, kuin
-ainainen yksittäisen prosessorin kellotaajuuden kasvatus (\citealt{moore}). Rinnakkaislaskenta
+ainainen yksittäisen prosessorin kellotaajuuden kasvatus (\citealt{moore}, \citealt{vajda}). Rinnakkaislaskenta
 mahdollistaa halvemman ja paljon tehokkaamman ratkaisun laskentatehon
 kasvattamiseen. (\citealt{xu}, \citealt{chi})
 
@@ -55,7 +55,7 @@ järjestäminen, sopivan rinnakkaisen toteutuksen löytäminen kulloinkin käsil
 olevaan ongelmaan ja suuri määrä erilaisia rinnakkaisia kiihdytysalustoja.
 Tapoja mitata rinnakkaisten järjestelmien tehokkuutta esitellään myös luvussa.
 Rinnakkaisten järjestelmien tehokkuuden mittamisessa tärkeintä on, että ne ovat
-peräkkäisiä toteutuksia tehokkaampia. (\citealt{intro}, \citealt{})
+peräkkäisiä toteutuksia tehokkaampia. (\citealt{intro}, \citealt{rauber})
 
 Rinnakkaista videokoodausta käsitellään luvussa \ref{chap:parallel_coding}.
 Rinnakkaislaskennan soveltaminen videokoodaukseen on erityisen hankalaa
@@ -398,8 +398,7 @@ tehostamiseksi. \citealt{lee} ehdottaa menetelmää, jossa videon
 äänilähteet piirretään suuremmalla tarkkuudella, koska ihmisten on luonteva
 keskittää huomionsa äänilähteisiin. Mainitut lähteet (\citealt{mujal},
 \citealt{sync}) esittelevät keinoja helpottaa videodatan synkronointia ja vähentää
-tallennustilan tarvetta. Nämä menetelmät nojaavat ihmisen rajalliseen
-havainnointikykyyn.
+tallennustilan tarvetta.
 
 \subsection{Diskreetti kosinimuunnos}
 
@@ -530,7 +529,7 @@ johdosta. Samalla rinnakkaisuutta esiintyy kerroksittain, esimerkiksi
 tavallisessa moniydinprosessorissa on monta ydintä, ja jokaisella ytimellä on
 omat liukuhihnansa. (\citealt{intro}, \citealt{rauber})
 
-\subsection{SIMD, MIMD ja SIMT - rinnakkaisten menetelmien hallintarakenteet}
+\subsection{Rinnakkaisten menetelmien hallintarakenteet}
 
 Rinnakkaislaskennan hallintarakenteet voidaan jakaa karkeasti kahteen luokkaan sen perusteella,
 miten paljon laskennan hallintaa kullekin laskentayksikölle on jaettu. Jos
@@ -542,9 +541,20 @@ jokaisella laskentayksiköllä on oma hallintayksikkönsä. Konkreettisena
 esimerkkinä arkkitehtuurien erona voi pitää esimerkiksi sitä, että
 MIMD-arkkitehtuurissa jokainen laskentayksikkö voi suorittaa eri ohjelmia, kun
 SIMD-arkkitehtuurissa hallintayksikkö päättää, mitä ohjelmaa kaikki
-laskentayksiköt suorittavat. (\citealt{intro}, \citealt{rauber})
+laskentayksiköt suorittavat. Laskennan pilkkomista ja jakamista
+laskentayksiköille SIMD-menetelmässä kutsutaan vektoroinniksi. (\citealt{intro}, \citealt{rauber})
 
-TODO: SIMDistä ja MIMDistä lisää, manycore vs multicore, vektorointi jne
+Rinnakkaiset järjestelmät voidaan jakaa myös manycore- ja
+multicore-järjestelmiin \footnote{Suomen kielessä sana moniydinprosessori
+vittaa tyypillisesti multicore-järjestelmään}. Yhteistä molemmille
+järjestelmille on useat laskentayksiköt. Multicore-järjestelmässä eri
+ydinten välimuistit on pakotettu yhtenäiseen tilaan. Toisin sanoen yhden
+ytimen laskennan tulokset päivitetään kaikkien muiden ytimien välimuisteihin.
+Manycore-järjestelmissä välimuistien yhtenäisyysvaatimukset eivät ole yhtä
+tiukkoja, joten manycore-järjestelmiä voidaan tässä mielessä pitää
+multicore-järjestelmiä rinnakkaisempina. (\citealt{vajda})
+
+%TODO: SIMDistä ja MIMDistä lisää, manycore vs multicore, vektorointi jne
 
 \subsection{Rinnakkaisuuden peruskäsitteitä}
 
@@ -586,11 +596,15 @@ viestinvälitysrajapinnan vaatimukset. (\citealt{intro}, \citealt{rauber})
 
 \subsubsection{Skaalautuvuus}
 
-Skaalaus kertoo saavutetaanko rinnakkaislaskennasta laskentayksiköiden määrään
+Skaalautuvuus kertoo saavutetaanko rinnakkaislaskennasta laskentayksiköiden määrään
 suhteessa olevaa hyötyä, eli tehostuuko laskenta laskentayksiköitä lisäämällä.
 Laskentayksiköiden lisääminen ei loputtomasti kasvata rinnakkaislaskennan
 tehokkuutta. Hyvin skaalautuvan rinnakkaislaskentamallin laskenta-aika pysyy
 vakiona ongelmaa ja laskentayksiköiden määrää kasvattaessa. (\citealt{rauber})
+Toinen hyvin skaalautuvan rinnakkaisen ratkaisun merkki on, että sen suorityskyky
+kasvaa lineaarisesti laskentayksiköiden määrää kasvatettaessa (\citealt{intro}).
+Skaalautuvuus on välttämätön vaatimus tehokkaille rinnakkaisille järjestelmille
+(\citealt{intro}. \citealt{rauber}).
 
 \subsubsection{Rakeisuus ja laskennan järjestäminen}
 
@@ -619,20 +633,23 @@ on tärkeä vaikutus rinnakkaisuusasteeseen. (\citealt{intro}, \citealt{rauber})
 Kun jako osatehtäviin on tehty, täytyy osatehtävä jakaa laskentayksiköille.
 Purkuvaiheessa tallennetut riippuvuustiedot ovat tärkeitä laskentaa
 järjestettäessä. Tässä työssä ei tarkemmin syvennytä erilaisiin
-hajotustekniikoihin tai laskennan järjestämiseen, mutta muutamia
-yleisperiaatteita käydään seuraavassa läpi. Tästälähin laskennan järjestämistä
-kutsutaan kuvaukseksi, jonka lähtöjoukkona on looginen laskentaongelma ja kohdejoukkona fyysiset laskentayksiköt.
+hajotustekniikoihin tai laskennan järjestämiseen, mutta esitellään niiden
+kantavat ajatukset. Laskennan järjestämien voidaan nähdä kuvauksena, jonka
+lähtöjoukkona on looginen laskentaongelma ja kohdejoukkona fyysiset laskentayksiköt.
 Hyvät kuvausalgoritmit pyrkivät hyödyntämään suuren määrän laskentayksiköitä
 mahdollisimman tehokkaasti - muista riippumattomat osatehtävät eri
 laskentayksiköille, mahdollisimman moni laskentayksikkö käytössä,
 paljon viestivät osatehtävät samoille laskentayksiköille.
 Toisaalta pitäisi pitää laskentayksiköitä vapaana sellaisille tehtäville,
-joista muut tehtävät ovat riippuvaisia. Päämäärät ovat ristiriitaisia, sillä
+joista muut tehtävät ovat riippuvaisia. (\citealt{intro}, \citealt{rauber})
+
+Kuvauksen äämäärät ovat ristiriitaisia, sillä
 ei ole esimerkiksi joidenkin laskentayksiköiden vapaana pitämien on selvästi
 ristiriitaista mahdollisimman suuren käyttöasteen saavuttamiseksi. Sopivan
 tasapainon ja hyvän kuvauksen löytäminen ei ole helppo tehtävä, ja vaikka
 rinnakkaisuusaste antaa teoreettisen parhaan arvon rinnakkaisuudelle,
 käytännössä kuvaus määrää, kuinka rinnakkaista laskenta oikeasti on.
+Onnistunut kuvaus takaa laskennan hyvän skaalautuvuuden.
 (\citealt{intro}, \citealt{rauber})
 
 \subsubsection{Amdahlin laki}
@@ -926,7 +943,7 @@ alustoille ja jopa suoran syntetisoinnin laitteistoksi. (\citealt{rvc})
 
 \subsubsection{Videodatan riippuvuuksien ja synkronoinnin tarpeen vähentäminen}
 
-Videodatan riippuvuudet aiheuttavat sen, että rinnakakistaminen on vaikeaa tai
+Videodatan riippuvuudet aiheuttavat sen, että rinnakkaistaminen on vaikeaa tai
 että suurin osa rinnakkaislaskennasta kulutetaan synkronointiin eli käytännössä
 tyhjäkäyntiin. Tässä aliluvussa esitellään kaksi lähestymistapaa, joilla
 riippuvuuksien määrää ja niistä seuraavia ylimääräisiä kustannuksia on pyritty
@@ -1008,9 +1025,6 @@ Videodataa esittelevässä luvussa esiteltiin lyhyesti erilaisia mittareita vide
 laadulle ja videokookauksen laadulle. Taulukkoon \ref{tab:results}
 erilaisten rinnakkaisten videokoodausmenetelmien tuomia hyötyjä
 videokoodaukseen.
-\begin{center}
-%\begin{longtable}[ht]
-
 \begin{longtable}{| p{\linewidth/4} | p{\linewidth/4}| p{\linewidth/4}| p{\linewidth/4}|}
 
 	\caption{Empiirisiä tuloksia videokoodauksen rinnakkaistamisesta}
@@ -1033,9 +1047,7 @@ videokoodaukseen.
 	Rinnakkaisuuksien rikkominen & PSNR & Korkeampi PSNR kuin peräkkäisellä menetelmällä erityisesti korkealaatuisessa videossa &
 			\citealt{xu} \\
 	\hline 
-%\end{tabular}
 \end{longtable}
-\end{center}
 \subsection{Erilaiset kiihdytysalustat}
 
 Yksi rinnakkaislaskennan haasteista on siinä, että rinnakkaiset järjestelmät
@@ -1152,6 +1164,8 @@ näkyvään laskentatehon kasvuun. Videokoodauksen, rinnakkaislaskennan ja
 rinnakkaisen videokoodauksen saralla tehdään aktiivista tutkimusta. Esimerkiksi
 varsinainen rinnakkaislaskennan tutkimus on vahasti kääntäjien ja
 käyttöjärjestelmien tutkimusta, joihin ei tässä työssä syvennytty lainkaan.
+Rinnakkaislaskennan laitteistojen ja ohjelmistojen tutkimus on käytännön
+sovelluksien kannalta tärkeää, mutta yksityiskohdat jätettiin tämän työn ulkopuolelle.
 Työ toimii johdantona rinnakkaiseen videokoodaukseen ja ohjaa syvällisemmän
 tutkimuksen pariin.
 
