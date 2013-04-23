@@ -2,12 +2,6 @@
 
 \section{Johdanto}
 
-\begin{comment}
-\textbf{DISCLAIMER V1:} Huonoa, muistiinpanonomaista tekstiä. Tullaan parantamaan.
-\textbf{DISCLAIMER V2:} Perusasiat alkaa olla selitetty, joskin teksti on hiomatonta
-ja mitä luultavimmin täynnä kirjoitus- ja lyöntivirheitä.
-\end{comment}
-
 Nykyaikainen videodata tallennetaan digitaaliseen muotoon. Videodatan
 käsittelyä digitaalisille tallennuslaitteille ja siirtokanaville sopivaan
 muotoon ja uudelleen katseltavaan muotoon kutsutaan videokoodaukseksi.
@@ -32,47 +26,51 @@ Videokoodaus on kuitenkin laskennallisesti jäykkä tehtävä videodatan runsais
 sisäisistä riippuvuuksista ja olemassa olevien videokoodausmenetelmien
 toteutusten johdosta. Tästä johtuen videokoodausmentelmien rinnakkaistaminen ja
 rinnakkaislaskennasta näkyvien hyötyjen saaminen on vaikeaa.
-(\citealt{pieters}, \citealt{li}) Tässä työssä esitellään videokoodausta,
+(\citealt{pieters}, \citealt{li}) Tämän työn tavoite on esitellä videokoodausta,
 rinnakkaislaskentaa ja ratkaisuja rinnakkaisen videokoodauksen toteuttamiseksi.
+
+Rinnakkaislaskennasta on tutkimusten mukaan hyötyä videokoodaukselle. Tärkeää
+on ottaa rinnakkaislaskenta huomioon uusia standardeja suunniteltaessa, jotta ne leviävät
+laajempaan käyttöön. Yleistyvät moniydeinprosessorit tukevat tätä ajatusta.
+Jatkotutkimuksena kannattaisi tutkia, millaiset ratkaisut
+soveltuvat mahdollisimman monelle rinnakkaiselle kiihdytysalustalle ja miten
+mahdollisimman tehokkaita rinnakkaisia ratkaisuja olisi mahdollisimman helppo
+tuottaa.
 
 Luvussa \ref{chap:intro} käsitellään perusasioita elävästä kuvasta,
 videokoodauksesta ja rinnakkaislaskennasta. Kappale toimii lyhyenä johdantona
 työn aiheisiin, jos ne eivät ole aiemmin tuttuja.
 
-Videokoodausta käistellään luvussa \ref{chap:coding}. Luvussa esitellään
-videokoodauksen peruskäsitteet ja videodatan monijakoinen luonne.
-Videokoodauksen eri osat eivät ole monimutkaisia operaatioita, mutta datan
-riippuvuudet ja sen määrä asettavat haasteita videokoodausmenetelmille. Luvussa
-esitellään myös mittareita videodatan ja videokoodauksen laadulle. (\citealt{h264}, \citealt{du})
-Perinteisissä videokoodausmenetelmissä riippuvuuksia on käytetty hyödyksi,
-mutta videodatan laadun ja määrän kasvaessa nämä keinot alkavat olla
-riittämättömiä ((\citealt{chi}, \citealt{xu})).
+Videodatan on luonteeltaan monijakoista, sillä se sisältää elävää kuvaa, ääntä
+sekä mahdollisia lisäominaisuuksia. Videokoodauksen eri osat eivät ole
+monimutkaisia operaatioita, mutta datan riippuvuudet ja sen määrä asettavat
+haasteita videokoodausmenetelmille. Luvussa \ref{chap:coding} esitellään
+videokoodauksen ja videodatan peruskäsitteitä sekä mittareita
+videodatan ja videokoodauksen laadulle. Perinteiset videokoodausmenetelmät
+käyttävät videodatan riippuvuuksia hyväkseen koodausprosessin parantamiseksi. (\citealt{h264}, \citealt{du})
 
-Rinnakkaislaskentaa esitellään luvussa \ref{chap:parallel}. Rinnakkaislaskennan
-tavoite on laskentatehon kasvatus monia laskentayksiköitä hyödyntämällä.
-Rinnakkaisuuteen liittyy kuitenkin paljon haasteita, kuten laskennan
+Rinnakkaislaskennan tavoite on laskentatehon kasvatus monia laskentayksiköitä
+hyödyntämällä. Rinnakkaisuuteen liittyy kuitenkin paljon haasteita, kuten laskennan
 järjestäminen, sopivan rinnakkaisen toteutuksen löytäminen kulloinkin käsillä
 olevaan ongelmaan ja suuri määrä erilaisia rinnakkaisia kiihdytysalustoja.
-Tapoja mitata rinnakkaisten järjestelmien tehokkuutta esitellään myös luvussa.
+Luvussa \ref{chap:parallel} esitellään rinnakkaisuuden peruskäsitteitä,
+haasteita ja  apoja mitata rinnakkaisten järjestelmien tehokkuutta.
 Rinnakkaisten järjestelmien tehokkuuden mittamisessa tärkeintä on, että ne ovat
 peräkkäisiä toteutuksia tehokkaampia. (\citealt{intro}, \citealt{rauber})
 
-Rinnakkaista videokoodausta käsitellään luvussa \ref{chap:parallel_coding}.
 Rinnakkaislaskennan soveltaminen videokoodaukseen on erityisen hankalaa
-videodatan riippuvuuksien ja datan määrän johdosta. Ongelmien lisäksi
-luvussa esitellään joukko ratkaisuja rinnakkaisen videokoodauksen
-toteuttamiseen. Ratkaisuja ovat uudet standardit, riippuvuuksien ja
+videodatan riippuvuuksien ja datan määrän johdosta. Riippuvuuksien hyödyntäminen
+on toiminut olemassa olevilla menetelmillä,
+mutta videodatan laadun ja määrän kasvaessa nämä keinot alkavat olla
+riittämättömiä ((\citealt{chi}, \citealt{xu})). Luvussa \ref{chap:parallel_coding}
+esitellään rinnakkaisen videokoodauksen ongelmien lisäksi
+luvussa joukko ratkaisuja sen toteuttamiseen. Ratkaisuja ovat uudet standardit, riippuvuuksien ja
 synkronoinnin tarpeen vähentäminen ja mentelmien optimointi. Näillä keinoilla
 on saavutettu näkyviä hyötyjä videokoodauksen tehokkuuteen ja laatuun.
 (\citealt{pieters}, \citealt{chi}, \citealt{xu})
 
 Työn johtopäätökset esitellän luvussa \ref{chap:conclusion}.
-Rinnakkaislaskennasta on tutkimusten mukaan hyötyä videokoodaukselle, mutta
-ennen kuin näitä keinoja otetaan mukaan uusiin standardeihin ja ne leviävät
-laajempaan käyttöön, niistä ei vielä ole valtavasti hyötyä. Jatkotutkimuksena
-kannattaisi tutkia, millaiset ratkaisut soveltuvat mahdollisimman monelle
-rinnakkaiselle kiihdytysalustalle ja miten mahdollisimman tehokkaita
-rinnakkaisia ratkaisuja olisi mahdollisimman helppo tuottaa.
+
 
 
 \begin{comment}
@@ -182,27 +180,6 @@ johdosta se on pysynyt kehityksen marginaalissa vuosikymmeniä.
 (\citealt{intro}) Näihin ongelmiin ja rinnakkaislaskennan muihib piirteisiin
 keskitytään rinnakkaislaskentaa käsittelevässä luvussa \ref{chap:parallel}.
 
-\begin{comment}
-\subsection{Havaitseminen}
-\label{sec:perception}
-
-Video on visuaalinen media ja havaitseminen on sitä vahvasti tukeva
-tutkimusala. Videokoodauksen kannalta havaitseminen on mielenkiintoista
-videodatan subjektiivisen laadun takia. Videodatan laatupiirteitä käsitellään
-alaluvussa \ref{sec:quality}. Videon koodaamisen kannalta tärkeää on, että videodatan laatua
-voidaan pakatessa menettää ilman, että ihmissilmä havaitsee laadun
-heikkenemistä. Pakkaaminen on tällöin tehokkaampaa kuin laatu säilytettäessä. (\citealt{h264})
-
-Havainnoinnin tutkimustyökaluja ovat muun muassa silmien liikkeiden seuraus,
-kyselytutkimukset ja aivojen kuvantaminen. Videodatan subjektiivista laatua
-ja näin erästä videokoodauksen onnistumisen kriteeriä voidaan mitata
-kyselytutkimuksella. Eräs tutkimus on parantanut videodatan
-subjektiivista laatua tutkimalla silmän liikkeitä ja parantanut yleisimpien
-havainnoinnin kohteena olleiden alueiden tarkkuutta videossa
-(\citealt{perception}).
-\end{comment}
-
-
 \subsection{Rinnakkaislaskennan oikeellisuus}
 \label{sec:model}
 
@@ -228,21 +205,6 @@ ongelmilta.
 
 Tässä työssä ei tarkemmin syvennytä rinnakkaislaskennan oikeellisuuteen, mutta
 se on eräs rinnakkaislaskennan monista ongelmista ja aktiivisen tutkimustyön kohde.
-
-
-\begin{comment}
--tähän lukuun:
-
-	-videokuvasta palikka-asiaa
-
-	-rinnakkaisohjelmoinnista palikka-asiaa
-
-	-havaitsemisesta jotain palikka-asiaa
-
-	-videokoodauksessa paljon standardeja
-
-	-rinnakkaislaskentaa yritetty jo vuosikymmeniä saada toimimaan
-\end{comment}
 
 \section{Videokoodaus}
 \label{chap:coding}
@@ -554,8 +516,6 @@ Manycore-järjestelmissä välimuistien yhtenäisyysvaatimukset eivät ole yhtä
 tiukkoja, joten manycore-järjestelmiä voidaan tässä mielessä pitää
 multicore-järjestelmiä rinnakkaisempina. (\citealt{vajda})
 
-%TODO: SIMDistä ja MIMDistä lisää, manycore vs multicore, vektorointi jne
-
 \subsection{Rinnakkaisuuden peruskäsitteitä}
 
 Hallintarkanteiden ja eri tasojen rinnakkaisuuksien lisäksi rinnakkaisuus voidaan jakaa
@@ -832,17 +792,17 @@ yhtä nopeasti. Tässä aliluvussa käsitelläänkin uusia standardeja, tapoja
 muokata olemassa olevista standareista helpommin rinnakkaistuvia ja menetelmien
 optimointia.
 
-\subsubsection{Uudet standardit}
+\subsubsection{Uudet standardit ja menetelmät}
 
 Rinnakkaisten ratkaisujen yleistyessä on perinteisen videokoodausmenetelmien
 ongelmat alettu ottaa huomioon uusia
-videokoodausstandardeja suunniteltaessa. Uusien standardien tavoittena on korkean
+videokoodausstandardeja suunniteltaessa. Uusien standardien ja menetelmien tavoittena on korkean
 tason riippuvuuksien tai matalan tason rippuvuuksien vähentäminen . Korkean
 tason riippuvuus viittaa enkoodatun bittijonon riippuvuuksiin ja matalan
 tason riippuvuus yksittäisten työkalujen ja algoritmien riippuvuuksien
 vähentämistä. (\citealt{choi}) Käsitellään seuraavaksi, miten kehitteillä
 olevaan HEVC-standardiin (High Efficiency Vide Coding) on sisällytetty rinnakkaisuutta ja sille ehdotettua
-parannusta sekä RVC-CAL-standardi, joka tavoittelee helposti monille alustoille
+parannusta sekä RVC-CAL-menetelmä, joka tavoittelee helposti monille alustoille
 käännettäviä rinnakkaisia ratkaisuja. HEVC pyrkii korkean tason riippuvuuksien
 vähentämiseen ja RVC-CAL matalan tason riippuvuuksien vähentämiseen.
 
@@ -895,7 +855,7 @@ Huomattavaa on myös, että menetelmät toimivat huomattavasti paremmin
 rinnakkaisina kuin peräkkäisinä, sillä yhdessä säikeessä ajetut testit
 tuottivat selvästi huonoimmat tulokset.
 
-\paragraph{RVC-CAL-standardi}
+\paragraph{RVC-CAL-menetelmä}
 Rinnakkaisen videokoodauksen ongelmia on käsitelty aiemmissa alaluvuissa. Tässä
 alaluvussa esitellään eräs keino hyödyntää rinnakkaisuutta ja sen soveltamista
 videokoodaukseen. Keino on RVC-CAL, erityisesti videokoodaukseen kehitetty
@@ -1055,8 +1015,6 @@ ovat hyvin erilaisia ja yhteisiä tekniikoita ja toteutuksia niille on vaikea
 löytää. Tässä aliluvussa käsitellään muutamia erilaisia kiihdytysalustoja ja
 niiden sopivuutta rinnakkaiseen videokoodaukseen.
 
-%\subsubsection{Moniydinprosessorit}
-
 Kaikenlaiset tietokoneet aina älypuhelimista tehokkaisiin palvelimiin alkavat
 olla nykypäivänä moniydinprosessoreilla varustettuja (\citealt{choi}). Tämän
 johdosta tätä kiihdytysalustaa voidaankin pitää tärkeänä erityisesti
@@ -1066,8 +1024,6 @@ prosessoria, kun taas \citealt{li} käytti klusteria moniytimisiä prosessoreita
 Esitetyt tulokset osoittavat, että videokoodaus voidaan onnistuneesti
 rinnakkaistaa moniydinprosessoreille, mikä ennustaa hyvää tulevaisuuden
 rinnakkaisille videokoodaustoteutuksille kuluttajatason tietokoneissa.
-
-%\subsubsection{Klusterit}
 
 Klusteri tarkoittaa useampaa yhteen liitettyä tietokonetta, jotka on valjastettu
 suorittamaan samaa tehtävää. Klusterit ovat tyypillisiä tieteelliselle ja
@@ -1080,8 +1036,6 @@ heterogeenisyyden, laskentayksiköiden välisen viestinnän ja esimerkiksi
 klusterin hinnan. Multimedian toistamiseen klusterit ovat liian tehokkaita,
 mutta esimerkiksi konenäköön tai muihin tieteellisiin sovelluksiin klustereista
 ja rinnakkaisesta videokoodauksesta voi olla hyötyä.
-
-%\subsubsection{Grafiikkaprosessorit}
 
 Grafiikkaprosessorit ovat nykypäivänä käytännössä kaikista
 kuluttajatietokoneista löytyviä prosessoreita, jotka ovat erikoistuneet
@@ -1097,44 +1051,6 @@ rinnakkaislaskenta-alustoiksi, mikä on luontevaa, piirretäänhän dekoodattu
 videokuva näyttölaitteelle. Joissain uusissa näytönohjaimissa on
 sisäänrakennettuna tuki ja valmiit ohjelmistoratkaisut joidenkin videokoodausstandardien dekoodaamista
 varten, joten omia ratkaisuja tätä varten ei välttämättä edes tarvitse tehdä (\citealt{nvidia}).
-%Omille ratkaisuillekin on olemassa työkalut, esimerkiksi \citealt{pieters}
-%oli toteuttanut oman testiympäristönsä tunnetulla CUDA-ohjelmointikellä, joka
-%on kieli grafiikkaprosessoreiden ohjelmointiin.
-
-
-\begin{comment}
-\subsection{Muistiinpanoja}
-
--lähde \citealt{choi} ei ole kovin tieteellinen, mutta siinä on hyvä yleisnäkemys asiaan
-
--lähde \citealt{chi} kertoo yleistä tarinaa HEVC (high efficiency video coding)
-menetelmien skaalautuvuudesta ja tehokkuudesta. Hyvää juttua.
-
-
--lähde \citealt{xu} ehdottaa rivi-riviltä koodausschemaa (line-by-line) monelle
-ytimelle
--esittää jopa parempia tuloksia, kuin lineaarinen ratkaisu
-
--lähde \citealt{ut-va} käsittelee DCT:tä ja pipeliningia (helposti rinnakkaistuva
-implementaatio)
-
--lähde \citealt{cremers} esittää koodaushinta-frameworkin, joka ottaa kantaan
-videodatan liikkeeseen (motion layer decomposition) ja esittää tehokkaan
-rinnakaisen algoritmin tehtävän täyttäämiseen. Paperin idea on kuvien hajotus
-erilaisiin layereihin
-
--lähteessä \citealt{wei} enkoodataan 3D-dataa ja rinnakkaisuudella saavutetaan
-varsin hyviä tuloksia
-
--lähteessä \citealt{lazar} on käsitelty neuroverkkoja ja enkoodausta ja dekoodausta.
-Asiaa myös skaalauksesta ja GPU-klustereista
-
--lähteestä \citealt{pieters} löytyy datarinnakkainen näkemys massivisesti
-rinnakkaisiin ympäristöihin
-
--lähde \citealt{li} esittelee suunnitelua ja optimointia
-
-\end{comment}
 
 \section{Yhteenveto}
 \label{chap:conclusion}
@@ -1171,61 +1087,9 @@ tutkimuksen pariin.
 
 Jatkotutkimuksena olisi tärkeää selvittää, millainen rinnakkainen
 lähestymistapa videokoodaukselle on helpointa toteuttaa niin, että se
-palvelee mahdollisimman monia kiihdytysalustoja. RVC-CAL-standardin esittämä
+palvelee mahdollisimman monia kiihdytysalustoja. RVC-CAL-menetelmän esittämä
 työkalu, joka mahdollistaa rinnakkaisen koodekin kääntämisen monenlaisille
 alustoille on mielenkiintoinen ja tärkeä sovellus. 
-
-
-\begin{comment}
-Tämä työ esitteli videokoodauksen ja rinnakkaisohjelmoinnin perusteita,
-ongelmia ja mahdollisuuksia. Videokoodaus on tärkeää erilaisille
-multimediasovelluksilla ja koneellisesti tapahtuvaan videodatan analyysiin.
-Rinnakkaisohjelmointi ja -laskenta ovat kustannustehokkaita tapoja lisätä
-tietokoneiden laskentatehoa ja tulevaisuudessa luultavasti ainoa tapa ratkaista
-laskennallisesti vaativia ongelmia. Rinnakkaislaskentaan liittyy kuitenkin
-paljon erilaisia ongelmia, joiden johdosta yhtenäisiä, tehokkaita ratkaisuja
-rinnakkaislaskennan toteuttamiseksi ei ole vuosikymmenten saatossa pystytty
-luomaan. Videokoodauksen haasteet taas syntyvät siitä, että videodatan määrä
-ja laatu kasvavat jatkuvasti ja menetelmien on pysyttävä kehityksessä mukana.
-Standardointi on kuitenkin hidasta kirjava joukko olemassa olevia standardeja
-lisää haasteita erityisestä taaksepäin yhteensopivuuteen.
-
-Videokoodauksen ja rinnakkaislaskennan yhdistäminen tarjoaa ratkaisun alati
-vaativamman videodatan koodaamiseen rinnakkaislaskennan tuoman laskentatehon
-kasvun myötä. Videokoodauksen rinnakakistaminen ei kuitenkaan ole ongelmatonta.
-Rinnakkaislaskennan yleisten haasteiden, videodatan riippuvuuksien ja sen
-vaatiman tallennus- ja siirtokapasiteetin johdosta rinnakkaislaskennan
-toteuttaminen rinnakkaislaskentamenetelmillä on vaikeaa. Ongelman ratkaiseminen
-on kuitenkin välttämätöntä, sillä vaikka nykypäivän tehokkaimmat yksiytimiset
-prosessorit pystyvä koodaamaan korkeatarkkuuksista videota, niin tulevaisuudessa
-ne tuskin siihen pystyvät eivätkä viimeistä huutoa olevat yksiytimiset
-prosessorit sovellu kaikkiin videokoodausta tarvitseviin laitteisiin. Viimeisin
-huuto on myös aina kalleinta, eikä se luultavimmin ole kustannustehokasta.
-
-Kaikista vaikeuksista huolimatta rinnakkaisia videokoodaussovelluksia on tehty.
-Monet niistä perustuvat videodatan rinnakkaisuuksien rikkomiseen ja täten
-parempaan rinnakkaistuvuuteen, mutta pelkällä rinnakkaislaskennan tuonnilla
-videokoodaukseen on saavutettu kasvua laskentatehossa Rinnakkaisten
-menetelmien suorituskyky on peräkkäisiä videokoodausmenetelmiä parempi monilla
-mittareilla. Tulevaisuudessa yhä enemmän videodataa käsittelevät koneet, joten
-erityisesti objektiivisen laadun täytyy olla hyvä. Rinnakkaislaskennan
-tehostamista kannattaa myös se, että koneet tekevät parhaat päätelmät
-häviöttömästi pakatusta datasta, mikä on laskennallisesti vaativampaa.
-Nykyisten ratkaisujen ongelmana on, että vaikka ne toimivat esitetyillä
-testialustoilla, niiden yleistäminen esimerkiksi kaikkiin moniydinprosessorin
-omaaviin kuluttajatietokoneisiin on vaikeaa.
-
-Nyt kun rinnakkaislaskennan on osoitettu tehostavan videokoodausta, on aika
-katsoa tulevaisuuteen ja miettiä, miten rinnakkaisuudet tuomat hyödyt
-saataisiin kaikkien rinnakkaisten laskentayksiköiden saavutettaviksi. Tätä
-tavoitetta tukevat suunnitteilla olevat uudet standardit ja menetelmät, joilla
-rinnakkaisuuden alustariippuvuus vähenee ja joissa rinnakkaisuuden vaatimukset
-on otettu huomioon jo suunnitteluvaiheessa. Uusimmissa näytönohjainsukupolvissa
-on jo toteutettu videodatan dekoodaamisen rinnakkaisia menetelmiä.
-Tulevaisuudessa tällaiset laitteistoratkaisut tulevat lisääntymään ja samalla
-ohjelmistoratkaisut kehittyvät mahdollistaen rinnakkaislaskennan yleistymisen
-kaikillarinnakkaisilla laskenta-alustoilla.
-\end{comment}
 
 % --------------------------------------------------------------------
 
