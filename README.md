@@ -1,4 +1,4 @@
 psychic-dangerzone
 ==================
 
-A repository for thesis papers
+This repository contains my thesis (in Finnish) about parallelizing video encoding.
