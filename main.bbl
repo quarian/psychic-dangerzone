@@ -1,4 +1,4 @@
-\begin{thebibliography}{29}
+\begin{thebibliography}{30}
 \input babelbst.tex
 \newcommand{\Capitalize}[1]{\uppercase{#1}}
 \newcommand{\capitalize}[1]{\expandafter\Capitalize#1}
@@ -216,6 +216,13 @@ Iain Richardson.
   \bbledition{}, 2010.
 \newblock ISBN 978-0-470-51692-8 (nid.), 978-0-470-98928-9 (elektr.).
 \newblock 348 s.
+
+\bibitem[Vajda(2011)]{vajda}
+A.~Vajda.
+\newblock \emph{Programming Many-core Chips}.
+\newblock Springer US, 2011.
+\newblock ISBN 9781441997395.
+\newblock URL \url{http://books.google.fi/books?id=pSxa\_anfiG0C}.
 
 \bibitem[VideoLan(2013)]{x264}
 VideoLan.
